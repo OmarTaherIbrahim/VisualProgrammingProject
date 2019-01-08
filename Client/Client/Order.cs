@@ -129,8 +129,11 @@ namespace Client
             else
                 foreach (ListViewItem item in listView2.Items)
                 {
+                    if (item.Text.Contains("Extra") && item.Text.Contains(key))
+                        return;
                     if (key == item.Text)
                     {
+
                         item.Text = key + " Extra";
                         return;
                     }
@@ -166,6 +169,13 @@ namespace Client
         {
             foreach (ListViewItem item in listView2.SelectedItems)
             {
+                string[] split = new string[2];
+                if (item.Text.Contains("Extra"))
+                {
+                    split = item.Text.Split(' ');
+                    item.Text = split[0];
+                    return;
+                }
                 listView2.Items.Remove(item);
             }
         }
