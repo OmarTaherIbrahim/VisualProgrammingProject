@@ -94,10 +94,7 @@ namespace Client
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView2.Items.ContainsKey(listView1.SelectedItems.ToString())) {
-                listView2.Items.RemoveAt(listView2.Items.IndexOfKey(listView1.SelectedItems.ToString()));
-                listView2.Items.Add(listView1.SelectedItems.ToString() + "Extra");
-             }
+          
         }
 
         private void Order_Load(object sender, EventArgs e)
@@ -166,6 +163,14 @@ namespace Client
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void listView2_ItemActivate(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView2.SelectedItems)
+            {
+                listView2.Items.Remove(item);
+            }
         }
     }
 }
