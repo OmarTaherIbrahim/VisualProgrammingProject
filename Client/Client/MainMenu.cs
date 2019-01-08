@@ -73,5 +73,13 @@ namespace Client
             profileSideBarBtn.BackColor = Color.DarkOrange;
             orderSideBarBtn.BackColor = Color.DarkOrange;
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Closed += (s, args) => this.Close();
+            loginForm.Show();
+            this.Hide();
+        }
     }
 }

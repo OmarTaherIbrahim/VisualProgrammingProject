@@ -32,6 +32,7 @@
             this.historySideBarBtn = new System.Windows.Forms.Button();
             this.orderSideBarBtn = new System.Windows.Forms.Button();
             this.ParentPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.profileSideBarBtn = new System.Windows.Forms.Button();
             this.sideBarPanel.SuspendLayout();
             this.SuspendLayout();
@@ -39,6 +40,7 @@
             // sideBarPanel
             // 
             this.sideBarPanel.BackColor = System.Drawing.Color.DarkOrange;
+            this.sideBarPanel.Controls.Add(this.button1);
             this.sideBarPanel.Controls.Add(this.historySideBarBtn);
             this.sideBarPanel.Controls.Add(this.orderSideBarBtn);
             this.sideBarPanel.Controls.Add(this.profileSideBarBtn);
@@ -56,7 +58,7 @@
             this.historySideBarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.historySideBarBtn.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historySideBarBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.historySideBarBtn.Location = new System.Drawing.Point(0, 135);
+            this.historySideBarBtn.Location = new System.Drawing.Point(0, 223);
             this.historySideBarBtn.Name = "historySideBarBtn";
             this.historySideBarBtn.Size = new System.Drawing.Size(279, 69);
             this.historySideBarBtn.TabIndex = 2;
@@ -72,7 +74,7 @@
             this.orderSideBarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.orderSideBarBtn.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderSideBarBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.orderSideBarBtn.Location = new System.Drawing.Point(0, 69);
+            this.orderSideBarBtn.Location = new System.Drawing.Point(0, 157);
             this.orderSideBarBtn.Name = "orderSideBarBtn";
             this.orderSideBarBtn.Size = new System.Drawing.Size(279, 69);
             this.orderSideBarBtn.TabIndex = 1;
@@ -87,6 +89,25 @@
             this.ParentPanel.Size = new System.Drawing.Size(805, 575);
             this.ParentPanel.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkOrange;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Image = global::Client.Properties.Resources.back_white;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 493);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(267, 81);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "SignOut";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // profileSideBarBtn
             // 
             this.profileSideBarBtn.BackColor = System.Drawing.Color.DarkOrange;
@@ -97,7 +118,7 @@
             this.profileSideBarBtn.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileSideBarBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.profileSideBarBtn.Image = global::Client.Properties.Resources.username_small;
-            this.profileSideBarBtn.Location = new System.Drawing.Point(0, 4);
+            this.profileSideBarBtn.Location = new System.Drawing.Point(0, 82);
             this.profileSideBarBtn.Name = "profileSideBarBtn";
             this.profileSideBarBtn.Size = new System.Drawing.Size(279, 69);
             this.profileSideBarBtn.TabIndex = 0;
@@ -129,5 +150,6 @@
         private System.Windows.Forms.Button orderSideBarBtn;
         private System.Windows.Forms.Button profileSideBarBtn;
         private System.Windows.Forms.Panel ParentPanel;
+        private System.Windows.Forms.Button button1;
     }
 }

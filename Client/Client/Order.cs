@@ -12,7 +12,6 @@ namespace Client
 {
     public partial class Order : Form
     {
-
         public Order()
         {
             InitializeComponent();
@@ -136,6 +135,17 @@ namespace Client
                 }
             }
                 listView2.Items.Add(key);
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+    {
+       
+            listView3.Groups.Add(new ListViewGroup(comboBox1.SelectedItem.ToString()  + "," + comboBox2.SelectedItem.ToString()));
+              foreach(ListViewItem item in listView2.Items)
+            {
+                listView3.Items.Add(item.Text);
+                
+            }
         }
     }
 }
