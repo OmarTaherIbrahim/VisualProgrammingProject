@@ -1,0 +1,10 @@
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\Server.exe.config
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\Server.exe
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\Server.pdb
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.Form1.resources
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.exe
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.pdb
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.csprojAssemblyReference.cache
