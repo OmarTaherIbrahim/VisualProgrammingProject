@@ -125,15 +125,19 @@ namespace Client
         {
             string key = listView1.SelectedItems[0].Text;
             if (comboBox1.SelectedItem == null)
+            {
                 listView2.Clear();
-            else
-            foreach (ListViewItem item in listView2.Items) {
-                if (key == item.Text)
-                {
-                    item.Text = key + " Extra";
-                    return;
-                }
+                return;
             }
+            else
+                foreach (ListViewItem item in listView2.Items)
+                {
+                    if (key == item.Text)
+                    {
+                        item.Text = key + " Extra";
+                        return;
+                    }
+                }
                 listView2.Items.Add(key);
         }
 
@@ -146,6 +150,14 @@ namespace Client
                 listView3.Items.Add(item.Text);
                 
             }
+        }
+        private void listView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
