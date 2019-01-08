@@ -30,8 +30,10 @@ namespace Client
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             switch (comboBox1.SelectedIndex)
             {
+               
                 case 0:
                     listView2.Clear();
                     listView2.Items.Add("Cheese");
@@ -122,8 +124,10 @@ namespace Client
 
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
-            
             string key = listView1.SelectedItems[0].Text;
+            if (comboBox1.SelectedItem == null)
+                listView2.Clear();
+            else
             foreach (ListViewItem item in listView2.Items) {
                 if (key == item.Text)
                 {
