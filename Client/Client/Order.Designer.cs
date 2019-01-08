@@ -57,7 +57,7 @@
             "Hawaiian Tropical Pizza"});
             this.comboBox1.Location = new System.Drawing.Point(53, 90);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(255, 36);
+            this.comboBox1.Size = new System.Drawing.Size(255, 26);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -72,7 +72,7 @@
             "Large"});
             this.comboBox2.Location = new System.Drawing.Point(53, 144);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(255, 36);
+            this.comboBox2.Size = new System.Drawing.Size(255, 26);
             this.comboBox2.TabIndex = 1;
             // 
             // listView1
@@ -149,7 +149,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
             this.label1.Location = new System.Drawing.Point(497, 460);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 28);
+            this.label1.Size = new System.Drawing.Size(43, 18);
             this.label1.TabIndex = 7;
             this.label1.Text = "Total";
             // 
@@ -160,7 +160,7 @@
             this.label2.ForeColor = System.Drawing.Color.DarkOrange;
             this.label2.Location = new System.Drawing.Point(495, 478);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 44);
+            this.label2.Size = new System.Drawing.Size(58, 29);
             this.label2.TabIndex = 8;
             this.label2.Text = "00$";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -172,7 +172,7 @@
             this.label3.ForeColor = System.Drawing.Color.DarkOrange;
             this.label3.Location = new System.Drawing.Point(495, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 44);
+            this.label3.Size = new System.Drawing.Size(85, 29);
             this.label3.TabIndex = 9;
             this.label3.Text = "Reciet";
             // 
@@ -182,7 +182,7 @@
             this.label4.ForeColor = System.Drawing.Color.DarkOrange;
             this.label4.Location = new System.Drawing.Point(50, 119);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 28);
+            this.label4.Size = new System.Drawing.Size(46, 18);
             this.label4.TabIndex = 10;
             this.label4.Text = "Size:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -193,13 +193,13 @@
             this.label5.ForeColor = System.Drawing.Color.DarkOrange;
             this.label5.Location = new System.Drawing.Point(50, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 28);
+            this.label5.Size = new System.Drawing.Size(54, 18);
             this.label5.TabIndex = 11;
             this.label5.Text = "Pizza:";
             // 
             // Order
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(789, 536);
