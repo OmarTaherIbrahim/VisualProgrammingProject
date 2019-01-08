@@ -44,19 +44,32 @@
             this.comboBox1.BackColor = System.Drawing.Color.White;
             this.comboBox1.ForeColor = System.Drawing.Color.DarkOrange;
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Margherita Pizza",
+            "Pepperoni Pizza",
+            "Capricciosa Pizza",
+            "Meat Lover Pizza",
+            "Super Surpreme Pizza",
+            "Vegetarian Pizza",
+            "Hawaiian Tropical Pizza"});
             this.comboBox1.Location = new System.Drawing.Point(53, 90);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(255, 26);
+            this.comboBox1.Size = new System.Drawing.Size(255, 36);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
             this.comboBox2.BackColor = System.Drawing.Color.White;
             this.comboBox2.ForeColor = System.Drawing.Color.DarkOrange;
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Small",
+            "Medium",
+            "Large"});
             this.comboBox2.Location = new System.Drawing.Point(53, 144);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(255, 26);
+            this.comboBox2.Size = new System.Drawing.Size(255, 36);
             this.comboBox2.TabIndex = 1;
             // 
             // listView1
@@ -68,6 +81,9 @@
             this.listView1.Size = new System.Drawing.Size(185, 289);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // listView2
             // 
@@ -78,6 +94,7 @@
             this.listView2.Size = new System.Drawing.Size(190, 289);
             this.listView2.TabIndex = 3;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.List;
             // 
             // listView3
             // 
@@ -122,7 +139,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
             this.label1.Location = new System.Drawing.Point(497, 460);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 18);
+            this.label1.Size = new System.Drawing.Size(67, 28);
             this.label1.TabIndex = 7;
             this.label1.Text = "Total";
             // 
@@ -133,14 +150,14 @@
             this.label2.ForeColor = System.Drawing.Color.DarkOrange;
             this.label2.Location = new System.Drawing.Point(495, 478);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 29);
+            this.label2.Size = new System.Drawing.Size(194, 44);
             this.label2.TabIndex = 8;
             this.label2.Text = "1000.00$";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Order
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(789, 536);
@@ -157,6 +174,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Order";
             this.Text = "Order";
+            this.Load += new System.EventHandler(this.Order_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

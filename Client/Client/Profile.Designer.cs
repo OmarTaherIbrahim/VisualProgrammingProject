@@ -46,7 +46,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
             this.label1.Location = new System.Drawing.Point(212, 237);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 32);
+            this.label1.Size = new System.Drawing.Size(249, 49);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -59,7 +59,7 @@
             this.label2.ForeColor = System.Drawing.Color.DarkOrange;
             this.label2.Location = new System.Drawing.Point(382, 237);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 32);
+            this.label2.Size = new System.Drawing.Size(230, 49);
             this.label2.TabIndex = 2;
             this.label2.Text = "10000000";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -71,7 +71,7 @@
             this.label3.ForeColor = System.Drawing.Color.DarkOrange;
             this.label3.Location = new System.Drawing.Point(318, 278);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(335, 32);
+            this.label3.Size = new System.Drawing.Size(513, 49);
             this.label3.TabIndex = 4;
             this.label3.Text = "OmarTaher@Gmail.com";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -84,7 +84,7 @@
             this.label4.ForeColor = System.Drawing.Color.DarkOrange;
             this.label4.Location = new System.Drawing.Point(212, 278);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 32);
+            this.label4.Size = new System.Drawing.Size(156, 49);
             this.label4.TabIndex = 3;
             this.label4.Text = "Email:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -96,7 +96,7 @@
             this.label5.ForeColor = System.Drawing.Color.DarkOrange;
             this.label5.Location = new System.Drawing.Point(327, 323);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(185, 32);
+            this.label5.Size = new System.Drawing.Size(282, 49);
             this.label5.TabIndex = 6;
             this.label5.Text = "0778877990";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,7 +108,7 @@
             this.label6.ForeColor = System.Drawing.Color.DarkOrange;
             this.label6.Location = new System.Drawing.Point(212, 323);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 32);
+            this.label6.Size = new System.Drawing.Size(167, 49);
             this.label6.TabIndex = 5;
             this.label6.Text = "Phone:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -140,10 +140,10 @@
             // 
             // Profile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(789, 536);
+            this.ClientSize = new System.Drawing.Size(841, 501);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
