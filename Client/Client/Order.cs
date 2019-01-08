@@ -29,6 +29,8 @@ namespace Client
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedItem != null)
+                comboBox2.SelectedIndex = 1;
             
             switch (comboBox1.SelectedIndex)
             {
