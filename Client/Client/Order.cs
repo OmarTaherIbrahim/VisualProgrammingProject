@@ -26,5 +26,26 @@ namespace Client
         {
 
         }
+
+        private void listView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            listView3.Groups.Add(new ListViewGroup(comboBox1.SelectedItem.ToString()  + "," + comboBox2.SelectedItem.ToString()));
+              foreach(ListViewItem item in listView2.Items)
+            {
+                listView3.Items.Add(item.Text);
+                
+            }
+        }
     }
 }

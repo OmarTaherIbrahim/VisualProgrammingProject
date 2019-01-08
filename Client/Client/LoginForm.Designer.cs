@@ -37,11 +37,14 @@
             this.passwordTxtLogin = new System.Windows.Forms.TextBox();
             this.usernameTxtLogin = new System.Windows.Forms.TextBox();
             this.panelSignUp = new System.Windows.Forms.Panel();
+            this.hintAddress = new System.Windows.Forms.Label();
+            this.addressTxtSign = new System.Windows.Forms.TextBox();
             this.hintConfirm = new System.Windows.Forms.Label();
             this.conformTxtSign = new System.Windows.Forms.TextBox();
             this.labelSignup = new System.Windows.Forms.Label();
             this.hintPasswordSignup = new System.Windows.Forms.Label();
             this.hintUsernameSign = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.createBtn = new System.Windows.Forms.Button();
             this.passwordTxtSign = new System.Windows.Forms.TextBox();
             this.usernameTxtSign = new System.Windows.Forms.TextBox();
@@ -51,9 +54,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxPassword = new System.Windows.Forms.PictureBox();
             this.pictureBoxUser = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.addressTxtSign = new System.Windows.Forms.TextBox();
-            this.hintAddress = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
             this.panelSignUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -203,6 +203,30 @@
             this.panelSignUp.TabIndex = 1;
             this.panelSignUp.Visible = false;
             // 
+            // hintAddress
+            // 
+            this.hintAddress.AutoSize = true;
+            this.hintAddress.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
+            this.hintAddress.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.hintAddress.Location = new System.Drawing.Point(166, 271);
+            this.hintAddress.Name = "hintAddress";
+            this.hintAddress.Size = new System.Drawing.Size(60, 16);
+            this.hintAddress.TabIndex = 23;
+            this.hintAddress.Text = "Address";
+            this.hintAddress.TextChanged += new System.EventHandler(this.removeHint);
+            this.hintAddress.Click += new System.EventHandler(this.removeHint);
+            // 
+            // addressTxtSign
+            // 
+            this.addressTxtSign.Location = new System.Drawing.Point(155, 270);
+            this.addressTxtSign.Name = "addressTxtSign";
+            this.addressTxtSign.Size = new System.Drawing.Size(205, 20);
+            this.addressTxtSign.TabIndex = 7;
+            this.addressTxtSign.Click += new System.EventHandler(this.removeHint);
+            this.addressTxtSign.TextChanged += new System.EventHandler(this.removeHint);
+            this.addressTxtSign.Enter += new System.EventHandler(this.removeHint);
+            this.addressTxtSign.Leave += new System.EventHandler(this.addHint);
+            // 
             // hintConfirm
             // 
             this.hintConfirm.AutoSize = true;
@@ -266,6 +290,20 @@
             this.hintUsernameSign.Text = "Username";
             this.hintUsernameSign.TextChanged += new System.EventHandler(this.removeHint);
             this.hintUsernameSign.Click += new System.EventHandler(this.removeHint);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.linkLabel1.Location = new System.Drawing.Point(152, 307);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(182, 16);
+            this.linkLabel1.TabIndex = 9;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Already have an Account?";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.loginLink_LinkClicked);
             // 
             // createBtn
             // 
@@ -371,44 +409,6 @@
             this.pictureBoxUser.TabIndex = 1;
             this.pictureBoxUser.TabStop = false;
             this.pictureBoxUser.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.linkLabel1.Location = new System.Drawing.Point(152, 307);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(182, 16);
-            this.linkLabel1.TabIndex = 9;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Already have an Account?";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.loginLink_LinkClicked);
-            // 
-            // addressTxtSign
-            // 
-            this.addressTxtSign.Location = new System.Drawing.Point(161, 270);
-            this.addressTxtSign.Name = "addressTxtSign";
-            this.addressTxtSign.Size = new System.Drawing.Size(205, 20);
-            this.addressTxtSign.TabIndex = 7;
-            this.addressTxtSign.Click += new System.EventHandler(this.removeHint);
-            this.addressTxtSign.TextChanged += new System.EventHandler(this.removeHint);
-            this.addressTxtSign.Enter += new System.EventHandler(this.removeHint);
-            this.addressTxtSign.Leave += new System.EventHandler(this.addHint);
-            // 
-            // hintAddress
-            // 
-            this.hintAddress.AutoSize = true;
-            this.hintAddress.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
-            this.hintAddress.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.hintAddress.Location = new System.Drawing.Point(166, 271);
-            this.hintAddress.Name = "hintAddress";
-            this.hintAddress.Size = new System.Drawing.Size(60, 16);
-            this.hintAddress.TabIndex = 23;
-            this.hintAddress.Text = "Address";
-            this.hintAddress.TextChanged += new System.EventHandler(this.removeHint);
-            this.hintAddress.Click += new System.EventHandler(this.removeHint);
             // 
             // LoginForm
             // 
