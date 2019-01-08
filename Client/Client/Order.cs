@@ -143,11 +143,14 @@ namespace Client
 
         private void addBtn_Click(object sender, EventArgs e)
     {
-       
-            listView3.Groups.Add(new ListViewGroup(comboBox1.SelectedItem.ToString()  + "," + comboBox2.SelectedItem.ToString()));
+            ListViewGroup group = new ListViewGroup(comboBox1.SelectedItem.ToString() + "," + comboBox2.SelectedItem.ToString());
+            listView3.Groups.Add(group);
               foreach(ListViewItem item in listView2.Items)
             {
-                listView3.Items.Add(item.Text);
+                ListViewItem listViewItem = new ListViewItem(group);
+                listViewItem.Text = item.Text;
+
+                listView3.Items.Add(listViewItem);
                 
             }
         }
