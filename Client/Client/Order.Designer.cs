@@ -77,6 +77,7 @@
             // 
             // listView1
             // 
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.BackColor = System.Drawing.Color.White;
             this.listView1.ForeColor = System.Drawing.Color.DarkOrange;
             this.listView1.Location = new System.Drawing.Point(53, 212);
@@ -90,6 +91,7 @@
             // 
             // listView2
             // 
+            this.listView2.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView2.BackColor = System.Drawing.Color.White;
             this.listView2.ForeColor = System.Drawing.Color.DarkOrange;
             this.listView2.Location = new System.Drawing.Point(244, 212);
@@ -98,6 +100,7 @@
             this.listView2.TabIndex = 3;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.List;
+            this.listView2.ItemActivate += new System.EventHandler(this.listView2_ItemActivate);
             this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // listView3
