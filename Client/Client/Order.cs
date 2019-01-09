@@ -50,10 +50,10 @@ namespace Client
             double orderSum = 0;
             if (comboBox1.SelectedItem != null)
                 comboBox2.SelectedIndex = 1;
-            
+
             switch (comboBox1.SelectedIndex)
             {
-               
+
                 case 0:
                     listView2.Clear();
                     listView2.Items.Add("Cheese");
@@ -113,12 +113,11 @@ namespace Client
             }
             listView3.Clear();
             listView3.Items.Add(comboBox1.Items[comboBox1.SelectedIndex].ToString());
-            for(int i=0; i<listView2.Items.Count ;i++)
-            // = true; (listView2.SelectedItems.ToString() != "NULL")
+            for (int i = 0; i < listView2.Items.Count; i++)
             {
                 listView3.Items[0].SubItems.Add(listView2.Items[i].Text.ToString());
             }
-            
+
             listView3.Items.Add("Size is : " + getPizzaSize());
             orderSum = getPrice() + getPrice() * .16;
             label2.Text = "$" + (orderSum).ToString();
@@ -126,11 +125,11 @@ namespace Client
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void Order_Load(object sender, EventArgs e)
-        { 
+        {
             listView1.Items.Add("Cheese");
             listView1.Items.Add("Sauce");
             listView1.Items.Add("Mashroom");
@@ -170,25 +169,25 @@ namespace Client
                         return;
                     }
                 }
-                listView2.Items.Add(key);
+            listView2.Items.Add(key);
         }
 
         private void addBtn_Click(object sender, EventArgs e)
-    {
+        {
             ListViewGroup group = new ListViewGroup(comboBox1.SelectedItem.ToString() + "," + comboBox2.SelectedItem.ToString());
             listView3.Groups.Add(group);
-              foreach(ListViewItem item in listView2.Items)
+            foreach (ListViewItem item in listView2.Items)
             {
                 ListViewItem listViewItem = new ListViewItem(group);
                 listViewItem.Text = item.Text;
 
                 listView3.Items.Add(listViewItem);
-                
+
             }
         }
         private void listView3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
         private void label4_Click(object sender, EventArgs e)
         {
