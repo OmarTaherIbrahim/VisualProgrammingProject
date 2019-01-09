@@ -16,6 +16,24 @@ namespace Client
         {
             InitializeComponent();
         }
+        public string getPizzaSize()
+        {
+            return comboBox2.Items[comboBox2.SelectedIndex].ToString();
+        }
+        public double getPrice()
+        {
+            switch (comboBox2.SelectedIndex)
+            {
+                case 0:
+                    return 7;
+                case 1:
+                    return 10;
+                case 2:
+                    return 15;
+                default:
+                    return 0;
+            }
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -29,6 +47,7 @@ namespace Client
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            double orderSum = 0;
             if (comboBox1.SelectedItem != null)
                 comboBox2.SelectedIndex = 1;
             
@@ -92,6 +111,17 @@ namespace Client
                     break;
 
             }
+            listView3.Clear();
+            listView3.Items.Add(comboBox1.Items[comboBox1.SelectedIndex].ToString());
+            for(int i=0; i<listView2.Items.Count ;i++)
+            // = true; (listView2.SelectedItems.ToString() != "NULL")
+            {
+                listView3.Items[0].SubItems.Add(listView2.Items[i].Text.ToString());
+            }
+            
+            listView3.Items.Add("Size is : " + getPizzaSize());
+            orderSum = getPrice() + getPrice() * .16;
+            label2.Text = "$" + (orderSum).ToString();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
