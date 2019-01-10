@@ -8,6 +8,7 @@ C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Serv
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.exe
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.pdb
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.csprojAssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\Server.exe.config
 C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\Server.exe
 C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\Server.pdb
@@ -22,6 +23,7 @@ C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\obj\Debug\
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.dll
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.EF6.dll
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.xml
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.SqlServer.xml
@@ -29,3 +31,13 @@ C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\Syst
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.csproj.CopyComplete
 >>>>>>> 2d58c51ee529fa7bb57a2d10af59360a9c6df96b
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.dll
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.dll
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.xml
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.xml
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\obj\Debug\Server.csproj.CopyComplete

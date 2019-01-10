@@ -4,14 +4,18 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Client
 {
+
     public partial class Order : Form
     {
+        private static Socket _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        static int orderID = 67830;
         double orderSum = 0;
 
         public Order()
@@ -21,6 +25,37 @@ namespace Client
         public string getPizzaSize()
         {
             return comboBox2.Items[comboBox2.SelectedIndex].ToString();
+        }
+
+        public void OrderPizza()
+        {
+            try
+            {
+                string ingredients="";
+                foreach (ListViewItem item in listView2.Items)
+                {
+                    if (item.Index < listView2.Items.Count - 1)
+                        ingredients += item.ToString() + ",";
+                    else
+                        ingredients += item.ToString();
+                }
+                string req = "insert into cart values(" + orderID + comboBox1.Items[comboBox1.SelectedIndex] + ingredients + "');";
+                orderID++;
+                byte[] buffer = Encoding.ASCII.GetBytes(req);
+                _clientSocket.Send(buffer);
+                byte[] response = new byte[1024];
+                int rec = _clientSocket.Receive(response);
+                byte[] data = new byte[rec];
+                Array.Copy(response, data, rec);
+                if (Encoding.ASCII.GetString(data) == "Done")
+                    MessageBox.Show("Successful Order.");
+                else
+                    MessageBox.Show("An error Occured. Please contact the Admins");
+            }
+            catch(Exception)
+            {
+
+            }
         }
 
         public double getPrice(int i)
@@ -55,7 +90,16 @@ namespace Client
 
         private void button2_Click(object sender, EventArgs e)
         {
+           DialogResult dialog = MessageBox.Show("Confirm Order", "Order Button", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                OrderPizza();
+            }
+            else
+            {
 
+            }
+        
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -161,9 +205,6 @@ namespace Client
             listView1.Items.Add("Beef");
             listView1.Items.Add("Chicken");
             listView1.Items.Add("BBQ Ssauce");
-
-
-
 
         }
 

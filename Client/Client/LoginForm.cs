@@ -13,6 +13,7 @@ namespace Client
 {
     public partial class LoginForm : Form
     {
+        Connect server = new Connect();
         HintManager hintManager;
         public LoginForm()
         {
@@ -67,7 +68,7 @@ namespace Client
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            server.LoopConnect();
         }
 
         private void LoginForm_Paint(object sender, PaintEventArgs e)

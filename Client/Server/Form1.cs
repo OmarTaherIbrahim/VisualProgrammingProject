@@ -47,7 +47,7 @@ namespace Server
                     }
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
 
             }
