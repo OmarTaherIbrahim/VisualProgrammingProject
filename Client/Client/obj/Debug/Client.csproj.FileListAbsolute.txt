@@ -30,3 +30,13 @@ C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\obj\Debug\Client.p
 C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\Client.exe.config
 C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\Client.exe
 C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\Client.pdb
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\bin\Debug\EntityFramework.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\bin\Debug\EntityFramework.xml
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.xml
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Client\obj\Debug\Client.csproj.CopyComplete
