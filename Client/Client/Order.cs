@@ -95,10 +95,6 @@ namespace Client
             {
                 OrderPizza();
             }
-            else
-            {
-
-            }
         
         }
 
