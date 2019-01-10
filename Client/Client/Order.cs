@@ -113,7 +113,7 @@ namespace Client
             listView1.Items.Add("Green Pepper");
             listView1.Items.Add("Beef");
             listView1.Items.Add("Chicken");
-            listView1.Items.Add("BBQ Ssauce");
+            listView1.Items.Add("BBQ Sauce");
 
 
 
