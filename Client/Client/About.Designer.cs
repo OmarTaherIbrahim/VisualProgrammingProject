@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -49,7 +50,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(581, 377);
             this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // linkLabel1
             // 
