@@ -19,9 +19,8 @@ namespace Server
         public Form1()
         {
             InitializeComponent();
-            DatabaseManager.EstablishConnection();
-            SQLiteDataReader reader = DatabaseManager.ExecuteQuery("select max(id) from orders;");
-            if (reader.Read()) orderidCounter = int.Parse(reader[0].ToString());
+            // takes the  id of the largest id to know where to insert
+            orderidCounter = DatabaseManager.getOrderIdMax();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,20 +31,8 @@ namespace Server
                
                 string orderid = (orderListView.SelectedItems[0].Text);
                 Text = orderid.ToString();
-                SQLiteDataReader reader = DatabaseManager.getOrderDetails(int.Parse(orderid));
-                while (reader.Read())
-                {
-                    
-                    ListViewGroup group = new ListViewGroup(reader[1].ToString());
-                    orderDetailListView.Groups.Add(group);
-                    String[] ings = reader[2].ToString().Split(',');
-                    foreach (String ing in ings)
-                    {
-                        string text = ing.Trim();
-                        ListViewItem item = orderDetailListView.Items.Add("  "+text.ToUpperInvariant());
-                        item.Group = group;
-                    }
-                }
+                DatabaseManager.getOrderDetails(int.Parse(orderid), orderDetailListView);
+
             }
             catch(Exception exeption)
             {
@@ -60,18 +47,44 @@ namespace Server
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SQLiteDataReader reader = DatabaseManager.getOrders();
-            while (reader.Read())
-            {
-                ListViewItem item =orderListView.Items.Add(reader[0].ToString());
-                item.SubItems.Add(reader[1].ToString());
-                item.SubItems.Add(reader[2].ToString());
-            }
-
+            DatabaseManager.getOrders(orderListView);
         }
         public void setUsername(string usr)
         {
             username = usr;
+        }
+        public void addOrder(ListView listView)
+        {
+
+            try
+            {
+                DatabaseManager.InsertOrder(++orderidCounter, DatabaseManager.getAddress(username), DatabaseManager.getUserID(username));
+                foreach (ListViewGroup group in listView.Groups)
+                {
+                    String ing = "";
+                    foreach (ListViewItem item in group.Items)
+                    {
+                        ing += item.Text;
+                        if (ing.Equals("")) continue;
+                        ing += ",";
+                    }
+                    DatabaseManager.InsertCart(orderidCounter, group.Header, ing);
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+        public ListView getHistoryListView(string username)
+        {
+            ListView listView = new ListView();
+            DatabaseManager.getOrdersForUsr(username, listView);
+            return listView;
+        }
+
+        public ListView getOrderListView()
+        {
+            return orderListView;
         }
     }
 }
