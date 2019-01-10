@@ -4,14 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Client
 {
+
     public partial class Order : Form
     {
+        private static Socket _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        static int orderID = 67830;
+        double orderSum = 0;
+
         public Order()
         {
             InitializeComponent();
@@ -20,6 +26,53 @@ namespace Client
         {
             return comboBox2.Items[comboBox2.SelectedIndex].ToString();
         }
+
+        public void OrderPizza()
+        {
+            try
+            {
+                string ingredients="";
+                foreach (ListViewItem item in listView2.Items)
+                {
+                    if (item.Index < listView2.Items.Count - 1)
+                        ingredients += item.ToString() + ",";
+                    else
+                        ingredients += item.ToString();
+                }
+                string req = "insert into cart values(" + orderID + comboBox1.Items[comboBox1.SelectedIndex] + ingredients + "');";
+                orderID++;
+                byte[] buffer = Encoding.ASCII.GetBytes(req);
+                _clientSocket.Send(buffer);
+                byte[] response = new byte[1024];
+                int rec = _clientSocket.Receive(response);
+                byte[] data = new byte[rec];
+                Array.Copy(response, data, rec);
+                if (Encoding.ASCII.GetString(data) == "Done")
+                    MessageBox.Show("Successful Order.");
+                else
+                    MessageBox.Show("An error Occured. Please contact the Admins");
+            }
+            catch(Exception)
+            {
+
+            }
+        }
+
+        public double getPrice(int i)
+        {
+            switch (i)
+            {
+                case 0:
+                    return 7;
+                case 1:
+                    return 10;
+                case 2:
+                    return 15;
+                default:
+                    return 0;
+            }
+        }
+
         public double getPrice()
         {
             switch (comboBox2.SelectedIndex)
@@ -37,7 +90,16 @@ namespace Client
 
         private void button2_Click(object sender, EventArgs e)
         {
+           DialogResult dialog = MessageBox.Show("Confirm Order", "Order Button", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                OrderPizza();
+            }
+            else
+            {
 
+            }
+        
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -47,7 +109,7 @@ namespace Client
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            double orderSum = 0;
+            
             if (comboBox1.SelectedItem != null)
                 comboBox2.SelectedIndex = 1;
 
@@ -111,7 +173,7 @@ namespace Client
                     break;
 
             }
-            listView3.Clear();
+          /*  listView3.Clear();
             listView3.Items.Add(comboBox1.Items[comboBox1.SelectedIndex].ToString());
             for (int i = 0; i < listView2.Items.Count; i++)
             {
@@ -120,7 +182,7 @@ namespace Client
 
             listView3.Items.Add("Size is : " + getPizzaSize());
             orderSum = getPrice() + getPrice() * .16;
-            label2.Text = "$" + (orderSum).ToString();
+            label2.Text = "$" + (orderSum).ToString();*/
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,9 +205,6 @@ namespace Client
             listView1.Items.Add("Beef");
             listView1.Items.Add("Chicken");
             listView1.Items.Add("BBQ Ssauce");
-
-
-
 
         }
 
@@ -174,17 +233,48 @@ namespace Client
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            ListViewGroup group = new ListViewGroup(comboBox1.SelectedItem.ToString() + "," + comboBox2.SelectedItem.ToString());
-            listView3.Groups.Add(group);
-            foreach (ListViewItem item in listView2.Items)
+
+            try
             {
-                ListViewItem listViewItem = new ListViewItem(group);
-                listViewItem.Text = item.Text;
+                ListViewGroup group = new ListViewGroup(comboBox1.SelectedItem.ToString() + "," + comboBox2.SelectedItem.ToString());
+                listView3.Items.Add(comboBox1.Items[comboBox1.SelectedIndex].ToString() + " - " + getPizzaSize() + " $" + getPrice(comboBox2.SelectedIndex));
+                listView3.Groups.Add(group);
 
-                listView3.Items.Add(listViewItem);
+                foreach (ListViewItem item in listView2.Items)
+                {
+                    ListViewItem listViewItem = new ListViewItem(group);
+                    listViewItem.Text = item.Text;
+                    listView3.Items.Add(listViewItem);
+                }
+                orderSum += getPrice() + getPrice() * .16;
+                label2.Text = "$" + (orderSum).ToString();
+                //   listView3.Clear();
 
+                //Beginning of my code
+                //listView3.Items.Add(comboBox1.Items[comboBox1.SelectedIndex].ToString());
+                //for (int i = 0; i < listView2.Items.Count; i++)
+                //{
+                //    listView3.Items[0].SubItems.Add(listView2.Items[i].Text.ToString());
+                //}
+
+                //listView3.Items.Add("Size is : " + getPizzaSize());
+                //orderSum += getPrice() + getPrice() * .16;
+                //label2.Text = "$" + (orderSum).ToString();
+            }
+            catch(NullReferenceException)
+            {
+                    MessageBox.Show("Error Type: No Pizza Selected");
             }
         }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            listView3.Clear();
+            orderSum = 0;
+            label2.Text = "$" + (orderSum).ToString();
+        }
+
+
         private void listView3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -213,5 +303,7 @@ namespace Client
                 listView2.Items.Remove(item);
             }
         }
+
+
     }
 }

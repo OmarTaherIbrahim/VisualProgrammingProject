@@ -31,8 +31,8 @@
             this.DrawingPanel = new System.Windows.Forms.Panel();
             this.orderListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderDetailListView = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -40,7 +40,7 @@
             // DrawingPanel
             // 
             this.DrawingPanel.BackColor = System.Drawing.Color.MintCream;
-            this.DrawingPanel.Location = new System.Drawing.Point(471, 1);
+            this.DrawingPanel.Location = new System.Drawing.Point(471, 17);
             this.DrawingPanel.Name = "DrawingPanel";
             this.DrawingPanel.Size = new System.Drawing.Size(292, 259);
             this.DrawingPanel.TabIndex = 0;
@@ -66,15 +66,15 @@
             // 
             this.columnHeader1.Text = "Order ID";
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Address";
-            this.columnHeader2.Width = 534;
-            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "UserID";
             this.columnHeader3.Width = 149;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Address";
+            this.columnHeader2.Width = 534;
             // 
             // orderDetailListView
             // 

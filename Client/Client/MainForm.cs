@@ -12,6 +12,7 @@ namespace Client
 {
     public partial class MainForm : Form
     {
+
         public MainForm()
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace Client
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
         }
     }
 }

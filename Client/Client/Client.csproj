@@ -70,6 +70,7 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connect.cs" />
     <Compile Include="History.cs">
       <SubType>Form</SubType>
     </Compile>

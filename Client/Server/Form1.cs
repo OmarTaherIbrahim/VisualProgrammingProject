@@ -34,7 +34,7 @@ namespace Server
                 DatabaseManager.getOrderDetails(int.Parse(orderid), orderDetailListView);
 
             }
-            catch(Exception exeption)
+            catch(Exception)
             {
 
             }

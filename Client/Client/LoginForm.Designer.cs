@@ -262,7 +262,7 @@
             this.labelSignup.Size = new System.Drawing.Size(107, 29);
             this.labelSignup.TabIndex = 17;
             this.labelSignup.Text = "SignUp!";
-            this.labelSignup.Click += new System.EventHandler(this.labelSignup_Click);
+          //  this.labelSignup.Click += new System.EventHandler(this.labelSignup_Click);
             // 
             // hintPasswordSignup
             // 
