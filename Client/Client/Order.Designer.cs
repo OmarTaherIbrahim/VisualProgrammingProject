@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -172,9 +173,9 @@
             this.label3.ForeColor = System.Drawing.Color.DarkOrange;
             this.label3.Location = new System.Drawing.Point(495, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 29);
+            this.label3.Size = new System.Drawing.Size(100, 29);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Reciet";
+            this.label3.Text = "Receipt";
             // 
             // label4
             // 
@@ -197,12 +198,27 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Pizza:";
             // 
+            // Clear
+            // 
+            this.Clear.BackColor = System.Drawing.Color.DarkOrange;
+            this.Clear.FlatAppearance.BorderSize = 0;
+            this.Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Clear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Clear.Location = new System.Drawing.Point(591, 463);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(85, 38);
+            this.Clear.TabIndex = 12;
+            this.Clear.Text = "Clear";
+            this.Clear.UseVisualStyleBackColor = false;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(789, 536);
+            this.Controls.Add(this.Clear);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -239,5 +255,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button Clear;
     }
 }

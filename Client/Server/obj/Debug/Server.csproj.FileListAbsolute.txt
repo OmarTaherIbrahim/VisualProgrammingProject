@@ -18,3 +18,14 @@ C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\obj\Debug\
 C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
 C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\obj\Debug\Server.exe
 C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Server\obj\Debug\Server.pdb
+=======
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.xml
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.xml
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Guester\Documents\VisualProgrammingProject\Client\Server\obj\Debug\Server.csproj.CopyComplete
+>>>>>>> 2d58c51ee529fa7bb57a2d10af59360a9c6df96b

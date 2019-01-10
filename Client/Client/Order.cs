@@ -12,6 +12,8 @@ namespace Client
 {
     public partial class Order : Form
     {
+        double orderSum = 0;
+
         public Order()
         {
             InitializeComponent();
@@ -20,6 +22,22 @@ namespace Client
         {
             return comboBox2.Items[comboBox2.SelectedIndex].ToString();
         }
+
+        public double getPrice(int i)
+        {
+            switch (i)
+            {
+                case 0:
+                    return 7;
+                case 1:
+                    return 10;
+                case 2:
+                    return 15;
+                default:
+                    return 0;
+            }
+        }
+
         public double getPrice()
         {
             switch (comboBox2.SelectedIndex)
@@ -47,7 +65,7 @@ namespace Client
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            double orderSum = 0;
+            
             if (comboBox1.SelectedItem != null)
                 comboBox2.SelectedIndex = 1;
 
@@ -111,7 +129,7 @@ namespace Client
                     break;
 
             }
-            listView3.Clear();
+          /*  listView3.Clear();
             listView3.Items.Add(comboBox1.Items[comboBox1.SelectedIndex].ToString());
             for (int i = 0; i < listView2.Items.Count; i++)
             {
@@ -120,7 +138,7 @@ namespace Client
 
             listView3.Items.Add("Size is : " + getPizzaSize());
             orderSum = getPrice() + getPrice() * .16;
-            label2.Text = "$" + (orderSum).ToString();
+            label2.Text = "$" + (orderSum).ToString();*/
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,17 +192,48 @@ namespace Client
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            ListViewGroup group = new ListViewGroup(comboBox1.SelectedItem.ToString() + "," + comboBox2.SelectedItem.ToString());
-            listView3.Groups.Add(group);
-            foreach (ListViewItem item in listView2.Items)
+
+            try
             {
-                ListViewItem listViewItem = new ListViewItem(group);
-                listViewItem.Text = item.Text;
+                ListViewGroup group = new ListViewGroup(comboBox1.SelectedItem.ToString() + "," + comboBox2.SelectedItem.ToString());
+                listView3.Items.Add(comboBox1.Items[comboBox1.SelectedIndex].ToString() + " - " + getPizzaSize() + " $" + getPrice(comboBox2.SelectedIndex));
+                listView3.Groups.Add(group);
 
-                listView3.Items.Add(listViewItem);
+                foreach (ListViewItem item in listView2.Items)
+                {
+                    ListViewItem listViewItem = new ListViewItem(group);
+                    listViewItem.Text = item.Text;
+                    listView3.Items.Add(listViewItem);
+                }
+                orderSum += getPrice() + getPrice() * .16;
+                label2.Text = "$" + (orderSum).ToString();
+                //   listView3.Clear();
 
+                //Beginning of my code
+                //listView3.Items.Add(comboBox1.Items[comboBox1.SelectedIndex].ToString());
+                //for (int i = 0; i < listView2.Items.Count; i++)
+                //{
+                //    listView3.Items[0].SubItems.Add(listView2.Items[i].Text.ToString());
+                //}
+
+                //listView3.Items.Add("Size is : " + getPizzaSize());
+                //orderSum += getPrice() + getPrice() * .16;
+                //label2.Text = "$" + (orderSum).ToString();
+            }
+            catch(NullReferenceException)
+            {
+                    MessageBox.Show("Error Type: No Pizza Selected");
             }
         }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            listView3.Clear();
+            orderSum = 0;
+            label2.Text = "$" + (orderSum).ToString();
+        }
+
+
         private void listView3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -213,5 +262,7 @@ namespace Client
                 listView2.Items.Remove(item);
             }
         }
+
+
     }
 }
