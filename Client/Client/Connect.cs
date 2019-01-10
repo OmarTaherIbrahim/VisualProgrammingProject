@@ -46,7 +46,7 @@ namespace Client
                 MessageBox.Show("Stopped attempting to connect");
             }
         }
-        public void SendLoop(string command1)
+        public bool SendLoop(string command1)
         {
             /*
             //Move these to server Socket.
@@ -56,8 +56,7 @@ namespace Client
                 switch (command[0])
                 {
                     case "login":
-                        isLogin(command[1], command[2]);
-                        break;
+                        return(isLogin(command[1], command[2]));
                     case "order":
                         InsertOrder(int.Parse(command[1]), command[2], command[3]);
                         break;
@@ -87,8 +86,8 @@ namespace Client
             int rec = _clientSocket.Receive(response);
             byte[] data = new byte[rec];
             Array.Copy(response, data, rec);
-
+            return true;
         }
-
+        
     }
 }
