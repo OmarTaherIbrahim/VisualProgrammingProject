@@ -112,7 +112,7 @@
             this.listView3.Size = new System.Drawing.Size(277, 401);
             this.listView3.TabIndex = 4;
             this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Tile;
+            this.listView3.View = System.Windows.Forms.View.List;
             this.listView3.SelectedIndexChanged += new System.EventHandler(this.listView3_SelectedIndexChanged);
             // 
             // addBtn

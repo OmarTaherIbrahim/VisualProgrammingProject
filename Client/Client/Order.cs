@@ -16,6 +16,24 @@ namespace Client
         {
             InitializeComponent();
         }
+        public string getPizzaSize()
+        {
+            return comboBox2.Items[comboBox2.SelectedIndex].ToString();
+        }
+        public double getPrice()
+        {
+            switch (comboBox2.SelectedIndex)
+            {
+                case 0:
+                    return 7;
+                case 1:
+                    return 10;
+                case 2:
+                    return 15;
+                default:
+                    return 0;
+            }
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -29,10 +47,13 @@ namespace Client
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            double orderSum = 0;
+            if (comboBox1.SelectedItem != null)
+                comboBox2.SelectedIndex = 1;
+
             switch (comboBox1.SelectedIndex)
             {
-               
+
                 case 0:
                     listView2.Clear();
                     listView2.Items.Add("Cheese");
@@ -90,15 +111,25 @@ namespace Client
                     break;
 
             }
+            listView3.Clear();
+            listView3.Items.Add(comboBox1.Items[comboBox1.SelectedIndex].ToString());
+            for (int i = 0; i < listView2.Items.Count; i++)
+            {
+                listView3.Items[0].SubItems.Add(listView2.Items[i].Text.ToString());
+            }
+
+            listView3.Items.Add("Size is : " + getPizzaSize());
+            orderSum = getPrice() + getPrice() * .16;
+            label2.Text = "$" + (orderSum).ToString();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void Order_Load(object sender, EventArgs e)
-        { 
+        {
             listView1.Items.Add("Cheese");
             listView1.Items.Add("Sauce");
             listView1.Items.Add("Mashroom");
@@ -129,26 +160,29 @@ namespace Client
             else
                 foreach (ListViewItem item in listView2.Items)
                 {
+                    if (item.Text.Contains("Extra") && item.Text.Contains(key))
+                        return;
                     if (key == item.Text)
                     {
+
                         item.Text = key + " Extra";
                         return;
                     }
                 }
-                listView2.Items.Add(key);
+            listView2.Items.Add(key);
         }
 
         private void addBtn_Click(object sender, EventArgs e)
-    {
+        {
             ListViewGroup group = new ListViewGroup(comboBox1.SelectedItem.ToString() + "," + comboBox2.SelectedItem.ToString());
             listView3.Groups.Add(group);
-              foreach(ListViewItem item in listView2.Items)
+            foreach (ListViewItem item in listView2.Items)
             {
                 ListViewItem listViewItem = new ListViewItem(group);
                 listViewItem.Text = item.Text;
 
                 listView3.Items.Add(listViewItem);
-                
+
             }
         }
         private void listView3_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +203,13 @@ namespace Client
         {
             foreach (ListViewItem item in listView2.SelectedItems)
             {
+                string[] split = new string[2];
+                if (item.Text.Contains("Extra"))
+                {
+                    split = item.Text.Split(' ');
+                    item.Text = split[0];
+                    return;
+                }
                 listView2.Items.Remove(item);
             }
         }
