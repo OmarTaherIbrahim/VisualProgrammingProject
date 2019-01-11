@@ -65,3 +65,14 @@ C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Client\bin\Debug\
 C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.xml
 C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Saif\Documents\GitHub\VisualProgrammingProject\Client\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\Client.pdb
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\EntityFramework.dll
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.dll
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\EntityFramework.xml
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.xml
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\samer\Desktop\VisualProgrammingProject\Client\Client\obj\Debug\Client.csproj.CopyComplete

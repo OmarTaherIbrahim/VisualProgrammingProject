@@ -31,8 +31,8 @@
             this.DrawingPanel = new System.Windows.Forms.Panel();
             this.orderListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderDetailListView = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -40,9 +40,10 @@
             // DrawingPanel
             // 
             this.DrawingPanel.BackColor = System.Drawing.Color.MintCream;
-            this.DrawingPanel.Location = new System.Drawing.Point(471, 1);
+            this.DrawingPanel.Location = new System.Drawing.Point(706, 2);
+            this.DrawingPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DrawingPanel.Name = "DrawingPanel";
-            this.DrawingPanel.Size = new System.Drawing.Size(292, 259);
+            this.DrawingPanel.Size = new System.Drawing.Size(438, 398);
             this.DrawingPanel.TabIndex = 0;
             this.DrawingPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_Paint);
             // 
@@ -54,9 +55,10 @@
             this.columnHeader2});
             this.orderListView.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderListView.FullRowSelect = true;
-            this.orderListView.Location = new System.Drawing.Point(2, 317);
+            this.orderListView.Location = new System.Drawing.Point(3, 488);
+            this.orderListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orderListView.Name = "orderListView";
-            this.orderListView.Size = new System.Drawing.Size(753, 259);
+            this.orderListView.Size = new System.Drawing.Size(1128, 396);
             this.orderListView.TabIndex = 1;
             this.orderListView.UseCompatibleStateImageBehavior = false;
             this.orderListView.View = System.Windows.Forms.View.Details;
@@ -66,47 +68,51 @@
             // 
             this.columnHeader1.Text = "Order ID";
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Address";
-            this.columnHeader2.Width = 534;
-            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "UserID";
             this.columnHeader3.Width = 149;
             // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Address";
+            this.columnHeader2.Width = 534;
+            // 
             // orderDetailListView
             // 
             this.orderDetailListView.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderDetailListView.Location = new System.Drawing.Point(2, 17);
+            this.orderDetailListView.Location = new System.Drawing.Point(3, 26);
+            this.orderDetailListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orderDetailListView.Name = "orderDetailListView";
-            this.orderDetailListView.Size = new System.Drawing.Size(463, 294);
+            this.orderDetailListView.Size = new System.Drawing.Size(692, 450);
             this.orderDetailListView.TabIndex = 2;
             this.orderDetailListView.UseCompatibleStateImageBehavior = false;
             this.orderDetailListView.View = System.Windows.Forms.View.Tile;
+            this.orderDetailListView.SelectedIndexChanged += new System.EventHandler(this.orderDetailListView_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label1.Location = new System.Drawing.Point(24, -2);
+            this.label1.Location = new System.Drawing.Point(36, -3);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 14);
+            this.label1.Size = new System.Drawing.Size(130, 22);
             this.label1.TabIndex = 3;
             this.label1.Text = "Order Details";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(767, 588);
+            this.ClientSize = new System.Drawing.Size(1150, 905);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.orderDetailListView);
             this.Controls.Add(this.orderListView);
             this.Controls.Add(this.DrawingPanel);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);

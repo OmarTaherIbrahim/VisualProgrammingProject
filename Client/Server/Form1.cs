@@ -73,5 +73,10 @@ namespace Server
         {
             username = usr;
         }
+
+        private void orderDetailListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
