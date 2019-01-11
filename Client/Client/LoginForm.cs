@@ -13,7 +13,7 @@ namespace Client
 {
     public partial class LoginForm : Form
     {
-        Connect server = new Connect();
+        //Connect server = new Connect();
         HintManager hintManager;
         public LoginForm()
         {
@@ -48,7 +48,7 @@ namespace Client
 
         private void loginBtn_Click(object sender, EventArgs e)
         {   
-            if (server.SendLoop("login" + " " + usernameTxtLogin.ToString() + " " + passwordTxtLogin.ToString()))//add validation
+      //      if (server.SendLoop("login" + " " + usernameTxtLogin.ToString() + " " + passwordTxtLogin.ToString()))//add validation
                 login();
         }
 
@@ -64,7 +64,7 @@ namespace Client
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            server.LoopConnect();
+        //    server.LoopConnect();
         }
 
         private void LoginForm_Paint(object sender, PaintEventArgs e)
@@ -102,7 +102,7 @@ namespace Client
         private void createBtn_Click(object sender, EventArgs e)
         {
             if (passwordTxtSign.ToString() == hintConfirm.ToString())
-                server.SendLoop("signup" + " " + hintUsernameSign + " " + passwordTxtSign + " " + addressTxtSign);
+                //server.SendLoop("signup" + " " + hintUsernameSign + " " + passwordTxtSign + " " + addressTxtSign);
             panelSignUp.Visible = false;
             panelLogin.Visible = true;
             usernameTxtLogin.Select();
