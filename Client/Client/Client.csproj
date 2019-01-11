@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Util\HintManager.cs" />
     <Compile Include="Util\Server.cs" />
+    <Compile Include="Util\userinfo.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>

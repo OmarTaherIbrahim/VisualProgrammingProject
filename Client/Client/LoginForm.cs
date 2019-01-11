@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +15,7 @@ namespace Client
     public partial class LoginForm : Form
     {
         HintManager hintManager;
+        Server server;
         public LoginForm()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace Client
             hintManager.SetPair(passwordTxtSign, hintPasswordSignup);
             hintManager.SetPair(conformTxtSign, hintConfirm);
             hintManager.SetPair(addressTxtSign, hintAddress);
+            server = new Server();
 
         }
 
@@ -46,21 +49,28 @@ namespace Client
 
 
         private void loginBtn_Click(object sender, EventArgs e)
-        {   
-           
-                login();
+        {
+            Thread t = new Thread(check);
+            t.Start();
         }
-
-        private void login()
+        private void check()
+        {
+            Server.Execute("login" + usernameTxtLogin.Text + "," + passwordTxtLogin.Text);
+        }
+        public void login()
         {
             MainMenu mainMenu = new MainMenu();
             //this.Parent.Controls.Clear();
+            userinfo.username = usernameTxtLogin.Text;
             mainMenu.Closed += (s, args) => this.Close();// adds this to close when the mainMenu form closes
             this.Hide();
             mainMenu.ShowDialog();
             
         }
-
+        public void loginFailed()
+        {
+            labelLogin.Text = "failed";
+        }
         private void LoginForm_Load(object sender, EventArgs e)
         {
         }
