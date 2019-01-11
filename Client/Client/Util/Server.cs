@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Windows.Forms;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,48 +14,74 @@ namespace Client.Util
     public class Server
     {
         // The port number for the remote device.  
-        private const int port = 11000;
+        private const int port = 12345;
         private const int portSendin = 11001;
 
-        public static String response = String.Empty;
-        private static String command;
-        private static Thread thread;
-        private static void StartClient()
+        public  String response = String.Empty;
+        private  String command;
+        private  Thread thread;
+        private  void StartClient()
         {
-            try
+            while (true)
             {
-                using (TcpClient tcpc = new TcpClient())
-                {
-                    Byte[] read = new Byte[9999];   // read buffer
-                                                    // server name
-
-                    // Try to connect to the server
-                    tcpc.Connect("localhost", port);                    // Get a NetworkStream object
-                    Stream s;
-                    s = tcpc.GetStream();
-
-                    // Read the stream and convert it to ASII
-                    int bytes = s.Read(read, 0, read.Length);
-                    response = Encoding.ASCII.GetString(read);
-                    if (response.CompareTo("loginTrue") == 0)
+                try
+            {
+                
+               
+                    using (TcpClient tcpc = new TcpClient())
                     {
-                        
-                        ((LoginForm)LoginForm.ActiveForm).login();
-                    }else if (response.CompareTo("loginFail") == 0)
-                    {
-                        ((LoginForm)LoginForm.ActiveForm).loginFailed();
+
+                        Byte[] read = new Byte[9999];   // read buffer
+
+                        // Try to connect to the server
+                        tcpc.Connect("localhost", 12345);
+                        Stream s;
+                        s = tcpc.GetStream();
+                        // Read the stream and convert it to ASII
+                        int bytes = s.Read(read, 0, read.Length);
+                        StringBuilder builder = new StringBuilder();
+                        foreach (byte b in read)
+                        {
+                            if (b.Equals(59))
+                                break;
+                            else builder.Append(Convert.ToChar(b).ToString());
+                        }
+                        response = builder.ToString();
+                        if (response.CompareTo("loginTrue") == 0)
+                        {
+                            MessageBox.Show("login:true");
+                            tcpc.Close();
+                            return;
+                        }
+                        else if (response.CompareTo("loginFail") == 0)
+                        {
+                            MessageBox.Show("login:false;");
+                            tcpc.Close();
+                            return;
+
+                        }
+                        else if (response.Contains("history"))
+                        {
+                            tcpc.Close();
+                            return;
+                        }
+                        else if (response.CompareTo("done!") == 0)
+                        {
+                            tcpc.Close();
+                            return;
+                        }
+                        tcpc.Close();
+                        return;
                     }
-                    tcpc.Close();
+               
                 }
-                Console.WriteLine("Reciever closed");
-            }
-            catch (PlatformNotSupportedException e)
-            {
-
+                catch (Exception e)
+                {
+                }
             }
         }
 
-        public static void StartServer(string str)
+        public  void StartServer(string str)
         {
 
             while (true)
@@ -70,14 +97,15 @@ namespace Client.Util
                     // Accept will block until someone connects
                     using (Socket s = tcpl.AcceptSocket())
                     {
-
+                        str += ";";
+                        MessageBox.Show(str);
                         // Convert the string to a Byte Array and send it
                         Byte[] byteData = Encoding.ASCII.GetBytes(str.ToCharArray());
                         s.Send(byteData, byteData.Length, 0);
                         s.Close();
-                        StartClient();
                         tcpl.Server.Close();
-                        break;
+                        StartClient();
+                        return;
                     }
                 }
                 catch (Exception e)
@@ -88,7 +116,7 @@ namespace Client.Util
 
         }
 
-        public static void Execute(String args)
+        public  String Execute(String args)
         {
             response = "null";
             command = args;
@@ -101,7 +129,7 @@ namespace Client.Util
                     if (!thread.IsAlive)
                     {
 
-                        return;
+                        return response;
                     }
                     else
                     {
@@ -116,7 +144,15 @@ namespace Client.Util
             }
             
         }
-        private static void commandExecute()
+        public void Close()
+        {
+            if (thread.IsAlive)
+            {
+                thread.Abort();
+            }
+        }
+       
+        private  void commandExecute()
         {
             StartServer(command);
         }

@@ -16,6 +16,7 @@ namespace Client
     {
         HintManager hintManager;
         Server server;
+        Thread t;
         public LoginForm()
         {
             InitializeComponent();
@@ -50,21 +51,38 @@ namespace Client
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            Thread t = new Thread(check);
-            t.Start();
+            check();
         }
         private void check()
         {
-            Server.Execute("login" + usernameTxtLogin.Text + "," + passwordTxtLogin.Text);
+           string s= server.Execute("login" + usernameTxtLogin.Text + "," + passwordTxtLogin.Text);
+            if (s.CompareTo("loginTrue") == 0)
+            {
+                
+                login();
+            }
+        }
+        public void showMessage()
+        {
+            MessageBox.Show("waiting for login");
         }
         public void login()
         {
-            MainMenu mainMenu = new MainMenu();
-            //this.Parent.Controls.Clear();
-            userinfo.username = usernameTxtLogin.Text;
-            mainMenu.Closed += (s, args) => this.Close();// adds this to close when the mainMenu form closes
-            this.Hide();
-            mainMenu.ShowDialog();
+
+            try
+            {
+                MainMenu mainMenu = new MainMenu();
+                //this.Parent.Controls.Clear();
+                userinfo.username = usernameTxtLogin.Text;
+                mainMenu.Closed += (s, args) => this.Close();// adds this to close when the mainMenu form closes
+                this.Hide();
+                mainMenu.ShowDialog();
+                if (t.IsAlive) t.Abort();
+            }
+            catch (Exception e)
+            {
+
+            }
             
         }
         public void loginFailed()
@@ -109,7 +127,23 @@ namespace Client
 
         private void createBtn_Click(object sender, EventArgs e)
         {
+            if (passwordTxtSign.Text.Contains(";") || usernameTxtSign.Text.Contains(";")||addressTxtSign.Text.Contains(";")) { MessageBox.Show("you can't use ';'"); return; }
             if (passwordTxtSign.Text == conformTxtSign.Text)
+            {
+                server.Execute("createuser" + usernameTxtSign.Text.ToLower() + "," + passwordTxtSign.Text + ","+addressTxtSign.Text+";");
+                if (server.response.CompareTo("loginTrue")==0)
+                {
+                    MessageBox.Show("account Created");
+                }
+                else
+                {
+                    MessageBox.Show("username inuse");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Password don't match!"); return;
+            }
               
             panelSignUp.Visible = false;
             panelLogin.Visible = true;

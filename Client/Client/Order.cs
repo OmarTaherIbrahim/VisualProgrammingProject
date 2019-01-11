@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,13 +16,14 @@ namespace Client
 
     public partial class Order : Form
     {
-        private static Socket _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        private Server server;
         static int orderID = 67830;
         double orderSum = 0;
-
+        Thread t;
         public Order()
         {
             InitializeComponent();
+            server = new Server();
         }
         public string getPizzaSize()
         {
@@ -42,9 +44,15 @@ namespace Client
                     }
                      text=text.Remove(text.Length - 1);
                     text +="^";
-                    MessageBox.Show(text);
                  }
-                Server.Execute(text);
+                server.Execute(text);
+                if (server.response.Equals("done!"))
+                {
+                    MessageBox.Show("order Sent");
+                    if(t!=null && t.IsAlive)
+                    t.Abort();
+
+                }
             }
             catch(Exception)
             {
@@ -87,7 +95,8 @@ namespace Client
            DialogResult dialog = MessageBox.Show("Confirm Order", "Order Button", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                OrderPizza();
+                t= new Thread(OrderPizza);
+                t.Start();
             }
             
         }

@@ -8,7 +8,7 @@ namespace Client.Util
 {
     class userinfo
     {
-        public static String username = "";
+        public static String username = "omar";
         
     }
 }

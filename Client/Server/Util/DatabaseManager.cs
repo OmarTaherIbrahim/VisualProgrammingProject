@@ -136,7 +136,6 @@ namespace Server.Util
             try
             {
                 ExecuteCommand("insert into cart values(" + orderID + ", '" + pizza + "', '" + ingredients + "');");
-                MessageBox.Show("insert into cart values(" + orderID + ", '" + pizza + "', '" + ingredients + "');");
             }
             catch (Exception)
             {
@@ -161,26 +160,21 @@ namespace Server.Util
         //should be used by the socket to check if the user can login which returns true if the query returns something meaning this user exits
         public static bool isLogin(string usr, string pswrd)
         {
-            MessageBox.Show("islogin");
             try
             {
                 var sql = "select * from users where username='"+usr+"' and password = '"+pswrd+"';";
                 using (SQLiteConnection c = new SQLiteConnection(ConnectionString))
                 {
                     c.Open();
-                    MessageBox.Show("islogin");
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, c))
                     {
-                        MessageBox.Show("islogin");
                         using (SQLiteDataReader rdr = cmd.ExecuteReader())
                         {
-                            MessageBox.Show("islogin");
                             if (rdr.Read()) return true;
 
                         }
                     }
                 }
-                MessageBox.Show(sql);
             }
             catch (Exception)
             {
@@ -195,12 +189,13 @@ namespace Server.Util
         /// </summary>
         /// <param name="usr"></param>
         /// <returns></returns>
-        public static void getOrdersForUsr(string usr,ListView orderListView)
+        public static String getOrdersForUsr(string usr)
         {
+            String list = "";
             try
             {
 
-                string sqlStatement = ("select orders.id, orders.userid, orders.address from orders,users where orders.userid=users.id and users.username='" + usr.ToLower() + "';");
+                string sqlStatement = ("select orders.id,  orders.address from orders,users where orders.userid=users.id and users.username='" + usr.ToLower() + "';");
                 using (SQLiteConnection c = new SQLiteConnection(ConnectionString))
                 {
                     c.Open();
@@ -210,9 +205,9 @@ namespace Server.Util
                         {
                             while (reader.Read())
                             {
-                                ListViewItem item = orderListView.Items.Add(reader[0].ToString());
-                                item.SubItems.Add(reader[1].ToString());
-                                item.SubItems.Add(reader[2].ToString());
+                                list+=reader[0].ToString()+",";
+                                list+=reader[1].ToString()+",";
+                                list += "^";
                             }
 
                         }
@@ -224,6 +219,7 @@ namespace Server.Util
 
                 
             }
+            return list;
         }
 
         /// <summary>
@@ -301,5 +297,6 @@ namespace Server.Util
                 
             }
         }
+
     }
 }

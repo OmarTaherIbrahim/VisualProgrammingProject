@@ -27,13 +27,14 @@ namespace Server
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshOrderView();
-            orderDetailListView.Clear();
+            
+            
             try
             {
                
                 string orderid = (orderListView.SelectedItems[0].Text);
                 Text = orderid.ToString();
+                orderDetailListView.Items.Clear();
                 DatabaseManager.getOrderDetails(int.Parse(orderid), orderDetailListView);
 
             }
@@ -50,6 +51,7 @@ namespace Server
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            orderListView.Items.Clear();
             DatabaseManager.getOrders(orderListView);
 
             Thread thread = new Thread(check);
@@ -57,7 +59,18 @@ namespace Server
         }
         private void check()
         {
-            server.Start();
+            while (true)
+            {
+                if (server.thread!=null)
+                {
+                    if (!server.thread.IsAlive)
+                        server.Start();
+                }
+                else
+                {
+                    server.Start();
+                }
+            }
         }
         public void setUsername(string usr)
         {
@@ -90,7 +103,7 @@ namespace Server
         }
         public  void RefreshOrderView()
         {
-            orderListView.Clear();
+            orderListView.Items.Clear();
             DatabaseManager.getOrders(orderListView);
         }
         public static void addOrderId()
@@ -105,16 +118,26 @@ namespace Server
             }
 
         }
-        public ListView getHistoryListView(string username)
+        public ListView getHistoryListView()
         {
             ListView listView = new ListView();
-            DatabaseManager.getOrdersForUsr(username, listView);
+            DatabaseManager.getOrders( listView);
             return listView;
         }
 
         public ListView getOrderListView()
         {
             return orderListView;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RefreshOrderView();
         }
     }
 }
