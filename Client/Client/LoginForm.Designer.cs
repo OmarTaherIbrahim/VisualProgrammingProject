@@ -226,6 +226,7 @@
             this.panelSignUp.Size = new System.Drawing.Size(561, 572);
             this.panelSignUp.TabIndex = 1;
             this.panelSignUp.Visible = false;
+            this.panelSignUp.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSignUp_Paint);
             // 
             // hintAddress
             // 

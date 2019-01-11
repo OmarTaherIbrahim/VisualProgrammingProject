@@ -136,7 +136,7 @@ namespace Server.Util
             try
             {
                 ExecuteCommand("insert into cart values(" + orderID + ", '" + pizza + "', '" + ingredients + "');");
-
+                MessageBox.Show("insert into cart values(" + orderID + ", '" + pizza + "', '" + ingredients + "');");
             }
             catch (Exception)
             {
@@ -161,21 +161,26 @@ namespace Server.Util
         //should be used by the socket to check if the user can login which returns true if the query returns something meaning this user exits
         public static bool isLogin(string usr, string pswrd)
         {
+            MessageBox.Show("islogin");
             try
             {
-                string sql = "select * from users where username='" + usr.ToLower() + "' and password = '" + pswrd + "';";
+                var sql = "select * from users where username='"+usr+"' and password = '"+pswrd+"';";
                 using (SQLiteConnection c = new SQLiteConnection(ConnectionString))
                 {
                     c.Open();
+                    MessageBox.Show("islogin");
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, c))
                     {
+                        MessageBox.Show("islogin");
                         using (SQLiteDataReader rdr = cmd.ExecuteReader())
                         {
+                            MessageBox.Show("islogin");
                             if (rdr.Read()) return true;
 
                         }
                     }
                 }
+                MessageBox.Show(sql);
             }
             catch (Exception)
             {

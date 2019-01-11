@@ -9,22 +9,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using Server.Util;
+using System.Threading;
 namespace Server
 {
-    public partial class Form1 : Form
+    public partial class Form1 : System.Windows.Forms.Form
     {
-        String username = "omar";
-        static int orderidCounter = 100;
-        
+        static String username = "omar";
+        public static int orderidCounter = 100;
+        private Server server;
         public Form1()
         {
             InitializeComponent();
             // takes the  id of the largest id to know where to insert
             orderidCounter = DatabaseManager.getOrderIdMax();
+            server = new Server();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RefreshOrderView();
             orderDetailListView.Clear();
             try
             {
@@ -48,17 +51,25 @@ namespace Server
         private void Form1_Load(object sender, EventArgs e)
         {
             DatabaseManager.getOrders(orderListView);
+
+            Thread thread = new Thread(check);
+            thread.Start();
+        }
+        private void check()
+        {
+            server.Start();
         }
         public void setUsername(string usr)
         {
             username = usr;
         }
-        public void addOrder(ListView listView)
+        public static void addOrder(ListView listView)
         {
 
             try
             {
                 DatabaseManager.InsertOrder(++orderidCounter, DatabaseManager.getAddress(username), DatabaseManager.getUserID(username));
+                MessageBox.Show(orderidCounter+"");
                 foreach (ListViewGroup group in listView.Groups)
                 {
                     String ing = "";
@@ -68,12 +79,31 @@ namespace Server
                         if (ing.Equals("")) continue;
                         ing += ",";
                     }
+                    MessageBox.Show(ing);
                     DatabaseManager.InsertCart(orderidCounter, group.Header, ing);
                 }
             }
             catch (Exception)
             {
             }
+            
+        }
+        public  void RefreshOrderView()
+        {
+            orderListView.Clear();
+            DatabaseManager.getOrders(orderListView);
+        }
+        public static void addOrderId()
+        {
+            try
+            {
+                DatabaseManager.InsertOrder(++orderidCounter, DatabaseManager.getAddress(username), DatabaseManager.getUserID(username));
+               
+            }
+            catch (Exception)
+            {
+            }
+
         }
         public ListView getHistoryListView(string username)
         {

@@ -16,6 +16,10 @@ namespace Client
         {
             InitializeComponent();
         }
+        private void work()
+        {
+            
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {

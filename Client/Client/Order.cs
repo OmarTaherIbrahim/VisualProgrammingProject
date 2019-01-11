@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,26 +32,19 @@ namespace Client
         {
             try
             {
-                string ingredients="";
-                foreach (ListViewItem item in listView2.Items)
-                {
-                    if (item.Index < listView2.Items.Count - 1)
-                        ingredients += item.ToString() + ",";
-                    else
-                        ingredients += item.ToString();
-                }
-                string req = "insert into cart values(" + orderID + comboBox1.Items[comboBox1.SelectedIndex] + ingredients + "');";
-                orderID++;
-                byte[] buffer = Encoding.ASCII.GetBytes(req);
-                _clientSocket.Send(buffer);
-                byte[] response = new byte[1024];
-                int rec = _clientSocket.Receive(response);
-                byte[] data = new byte[rec];
-                Array.Copy(response, data, rec);
-                if (Encoding.ASCII.GetString(data) == "Done")
-                    MessageBox.Show("Successful Order.");
-                else
-                    MessageBox.Show("An error Occured. Please contact the Admins");
+                string text = "order";
+                foreach (ListViewGroup group in listView3.Groups) {
+                    text += group.Header.Split(',')[0]+":";
+                    foreach (ListViewItem item in group.Items)
+                    {
+                        
+                            text += item.Text + ",";
+                    }
+                     text=text.Remove(text.Length - 1);
+                    text +="^";
+                    MessageBox.Show(text);
+                 }
+                Server.Execute(text);
             }
             catch(Exception)
             {
@@ -95,7 +89,7 @@ namespace Client
             {
                 OrderPizza();
             }
-        
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
