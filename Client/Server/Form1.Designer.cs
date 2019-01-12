@@ -88,7 +88,7 @@
             this.orderDetailListView.TabIndex = 2;
             this.orderDetailListView.UseCompatibleStateImageBehavior = false;
             this.orderDetailListView.View = System.Windows.Forms.View.Tile;
-            this.orderDetailListView.SelectedIndexChanged += new System.EventHandler(this.orderDetailListView_SelectedIndexChanged);
+            //this.orderDetailListView.SelectedIndexChanged += new System.EventHandler(this.orderDetailListView_SelectedIndexChanged);
             // 
             // label1
             // 
