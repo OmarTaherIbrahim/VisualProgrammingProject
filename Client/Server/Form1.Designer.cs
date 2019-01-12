@@ -35,13 +35,13 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderDetailListView = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DrawingPanel
             // 
             this.DrawingPanel.BackColor = System.Drawing.Color.MintCream;
-            this.DrawingPanel.Location = new System.Drawing.Point(706, 2);
-            this.DrawingPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DrawingPanel.Location = new System.Drawing.Point(471, 17);
             this.DrawingPanel.Name = "DrawingPanel";
             this.DrawingPanel.Size = new System.Drawing.Size(438, 398);
             this.DrawingPanel.TabIndex = 0;
@@ -102,12 +102,24 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Order Details";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(509, 287);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Refresh ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1150, 905);
+            this.ClientSize = new System.Drawing.Size(767, 588);
+            this.Controls.Add(this.button1);
+
             this.Controls.Add(this.label1);
             this.Controls.Add(this.orderDetailListView);
             this.Controls.Add(this.orderListView);
@@ -130,6 +142,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ListView orderDetailListView;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

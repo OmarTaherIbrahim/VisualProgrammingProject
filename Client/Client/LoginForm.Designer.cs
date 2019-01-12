@@ -34,34 +34,34 @@
             this.hintUsernameLogin = new System.Windows.Forms.Label();
             this.createLinkLabel = new System.Windows.Forms.LinkLabel();
             this.loginBtn = new System.Windows.Forms.Button();
+            this.pictureBoxPassword = new System.Windows.Forms.PictureBox();
             this.passwordTxtLogin = new System.Windows.Forms.TextBox();
+            this.pictureBoxUser = new System.Windows.Forms.PictureBox();
             this.usernameTxtLogin = new System.Windows.Forms.TextBox();
             this.panelSignUp = new System.Windows.Forms.Panel();
             this.hintAddress = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.addressTxtSign = new System.Windows.Forms.TextBox();
             this.hintConfirm = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.conformTxtSign = new System.Windows.Forms.TextBox();
             this.labelSignup = new System.Windows.Forms.Label();
             this.hintPasswordSignup = new System.Windows.Forms.Label();
             this.hintUsernameSign = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.createBtn = new System.Windows.Forms.Button();
-            this.passwordTxtSign = new System.Windows.Forms.TextBox();
-            this.usernameTxtSign = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.passwordTxtSign = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPassword = new System.Windows.Forms.PictureBox();
-            this.pictureBoxUser = new System.Windows.Forms.PictureBox();
+            this.usernameTxtSign = new System.Windows.Forms.TextBox();
             this.panelLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             this.panelSignUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLogin
@@ -85,7 +85,7 @@
             this.labelLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelLogin.AutoSize = true;
             this.labelLogin.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLogin.Location = new System.Drawing.Point(147, 105);
+            this.labelLogin.Location = new System.Drawing.Point(193, 81);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(86, 29);
             this.labelLogin.TabIndex = 8;
@@ -127,7 +127,7 @@
             this.createLinkLabel.AutoSize = true;
             this.createLinkLabel.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.createLinkLabel.Location = new System.Drawing.Point(216, 281);
+            this.createLinkLabel.Location = new System.Drawing.Point(216, 289);
             this.createLinkLabel.Name = "createLinkLabel";
             this.createLinkLabel.Size = new System.Drawing.Size(119, 16);
             this.createLinkLabel.TabIndex = 3;
@@ -153,6 +153,17 @@
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
+            // pictureBoxPassword
+            // 
+            this.pictureBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxPassword.Image = global::Client.Properties.Resources.password;
+            this.pictureBoxPassword.Location = new System.Drawing.Point(96, 250);
+            this.pictureBoxPassword.Name = "pictureBoxPassword";
+            this.pictureBoxPassword.Size = new System.Drawing.Size(38, 29);
+            this.pictureBoxPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPassword.TabIndex = 3;
+            this.pictureBoxPassword.TabStop = false;
+            // 
             // passwordTxtLogin
             // 
             this.passwordTxtLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -166,6 +177,19 @@
             this.passwordTxtLogin.TextChanged += new System.EventHandler(this.removeHint);
             this.passwordTxtLogin.Enter += new System.EventHandler(this.removeHint);
             this.passwordTxtLogin.Leave += new System.EventHandler(this.addHint);
+            // 
+            // pictureBoxUser
+            // 
+            this.pictureBoxUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxUser.BackgroundImage = global::Client.Properties.Resources.username;
+            this.pictureBoxUser.Image = global::Client.Properties.Resources.username;
+            this.pictureBoxUser.Location = new System.Drawing.Point(96, 194);
+            this.pictureBoxUser.Name = "pictureBoxUser";
+            this.pictureBoxUser.Size = new System.Drawing.Size(38, 29);
+            this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxUser.TabIndex = 1;
+            this.pictureBoxUser.TabStop = false;
+            this.pictureBoxUser.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // usernameTxtLogin
             // 
@@ -202,6 +226,7 @@
             this.panelSignUp.Size = new System.Drawing.Size(561, 572);
             this.panelSignUp.TabIndex = 1;
             this.panelSignUp.Visible = false;
+            this.panelSignUp.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSignUp_Paint);
             // 
             // hintAddress
             // 
@@ -215,6 +240,16 @@
             this.hintAddress.Text = "Address";
             this.hintAddress.TextChanged += new System.EventHandler(this.removeHint);
             this.hintAddress.Click += new System.EventHandler(this.removeHint);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Client.Properties.Resources.address;
+            this.pictureBox4.Location = new System.Drawing.Point(119, 266);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 29);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 22;
+            this.pictureBox4.TabStop = false;
             // 
             // addressTxtSign
             // 
@@ -240,6 +275,16 @@
             this.hintConfirm.TextChanged += new System.EventHandler(this.removeHint);
             this.hintConfirm.Click += new System.EventHandler(this.removeHint);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Client.Properties.Resources.password;
+            this.pictureBox3.Location = new System.Drawing.Point(119, 225);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 29);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 19;
+            this.pictureBox3.TabStop = false;
+            // 
             // conformTxtSign
             // 
             this.conformTxtSign.BackColor = System.Drawing.SystemColors.Window;
@@ -257,12 +302,11 @@
             // 
             this.labelSignup.AutoSize = true;
             this.labelSignup.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSignup.Location = new System.Drawing.Point(164, 72);
+            this.labelSignup.Location = new System.Drawing.Point(200, 81);
             this.labelSignup.Name = "labelSignup";
             this.labelSignup.Size = new System.Drawing.Size(107, 29);
             this.labelSignup.TabIndex = 17;
             this.labelSignup.Text = "SignUp!";
-            this.labelSignup.Click += new System.EventHandler(this.labelSignup_Click);
             // 
             // hintPasswordSignup
             // 
@@ -321,6 +365,16 @@
             this.createBtn.UseVisualStyleBackColor = false;
             this.createBtn.Click += new System.EventHandler(this.createBtn_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Client.Properties.Resources.password;
+            this.pictureBox1.Location = new System.Drawing.Point(119, 184);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 29);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // passwordTxtSign
             // 
             this.passwordTxtSign.BackColor = System.Drawing.SystemColors.Window;
@@ -334,47 +388,6 @@
             this.passwordTxtSign.Enter += new System.EventHandler(this.removeHint);
             this.passwordTxtSign.Leave += new System.EventHandler(this.addHint);
             // 
-            // usernameTxtSign
-            // 
-            this.usernameTxtSign.Location = new System.Drawing.Point(154, 149);
-            this.usernameTxtSign.Name = "usernameTxtSign";
-            this.usernameTxtSign.Size = new System.Drawing.Size(206, 20);
-            this.usernameTxtSign.TabIndex = 4;
-            this.usernameTxtSign.Click += new System.EventHandler(this.removeHint);
-            this.usernameTxtSign.TextChanged += new System.EventHandler(this.removeHint);
-            this.usernameTxtSign.Enter += new System.EventHandler(this.removeHint);
-            this.usernameTxtSign.Leave += new System.EventHandler(this.addHint);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Client.Properties.Resources.address;
-            this.pictureBox4.Location = new System.Drawing.Point(119, 266);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 29);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 22;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Client.Properties.Resources.password;
-            this.pictureBox3.Location = new System.Drawing.Point(119, 225);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 29);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 19;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Client.Properties.Resources.password;
-            this.pictureBox1.Location = new System.Drawing.Point(119, 184);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 29);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::Client.Properties.Resources.username;
@@ -386,29 +399,16 @@
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBoxPassword
+            // usernameTxtSign
             // 
-            this.pictureBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxPassword.Image = global::Client.Properties.Resources.password;
-            this.pictureBoxPassword.Location = new System.Drawing.Point(96, 250);
-            this.pictureBoxPassword.Name = "pictureBoxPassword";
-            this.pictureBoxPassword.Size = new System.Drawing.Size(38, 29);
-            this.pictureBoxPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPassword.TabIndex = 3;
-            this.pictureBoxPassword.TabStop = false;
-            // 
-            // pictureBoxUser
-            // 
-            this.pictureBoxUser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxUser.BackgroundImage = global::Client.Properties.Resources.username;
-            this.pictureBoxUser.Image = global::Client.Properties.Resources.username;
-            this.pictureBoxUser.Location = new System.Drawing.Point(96, 194);
-            this.pictureBoxUser.Name = "pictureBoxUser";
-            this.pictureBoxUser.Size = new System.Drawing.Size(38, 29);
-            this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxUser.TabIndex = 1;
-            this.pictureBoxUser.TabStop = false;
-            this.pictureBoxUser.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.usernameTxtSign.Location = new System.Drawing.Point(154, 149);
+            this.usernameTxtSign.Name = "usernameTxtSign";
+            this.usernameTxtSign.Size = new System.Drawing.Size(206, 20);
+            this.usernameTxtSign.TabIndex = 4;
+            this.usernameTxtSign.Click += new System.EventHandler(this.removeHint);
+            this.usernameTxtSign.TextChanged += new System.EventHandler(this.removeHint);
+            this.usernameTxtSign.Enter += new System.EventHandler(this.removeHint);
+            this.usernameTxtSign.Leave += new System.EventHandler(this.addHint);
             // 
             // LoginForm
             // 
@@ -428,14 +428,14 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.LoginForm_Paint);
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
             this.panelSignUp.ResumeLayout(false);
             this.panelSignUp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -1,26 +1,63 @@
-﻿using System;
+﻿using Client.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Client
 {
+
     public partial class Order : Form
     {
+        private Server server;
+        static int orderID = 67830;
         double orderSum = 0;
-
+        Thread t;
         public Order()
         {
             InitializeComponent();
+            server = new Server();
         }
         public string getPizzaSize()
         {
             return comboBox2.Items[comboBox2.SelectedIndex].ToString();
+        }
+
+        public void OrderPizza()
+        {
+            try
+            {
+                string text = "order";
+                foreach (ListViewGroup group in listView3.Groups) {
+                    text += group.Header.Split(',')[0]+":";
+                    foreach (ListViewItem item in group.Items)
+                    {
+                        
+                            text += item.Text + ",";
+                    }
+                     text=text.Remove(text.Length - 1);
+                    text +="^";
+                 }
+                server.Execute(text);
+                if (server.response.Equals("done!"))
+                {
+                    MessageBox.Show("order Sent");
+                    if(t!=null && t.IsAlive)
+                    t.Abort();
+
+                }
+            }
+            catch(Exception)
+            {
+
+            }
         }
 
         public double getPrice(int i)
@@ -55,7 +92,13 @@ namespace Client
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+           DialogResult dialog = MessageBox.Show("Confirm Order", "Order Button", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                t= new Thread(OrderPizza);
+                t.Start();
+            }
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -161,9 +204,6 @@ namespace Client
             listView1.Items.Add("Beef");
             listView1.Items.Add("Chicken");
             listView1.Items.Add("BBQ Sauce");
-
-
-
 
         }
 

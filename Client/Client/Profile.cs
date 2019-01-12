@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,11 @@ namespace Client
         {
             About about = new About();
             about.Show();
+        }
+
+        private void Profile_Load(object sender, EventArgs e)
+        {
+            label2.Text = userinfo.username;
         }
     }
 }
